@@ -283,10 +283,17 @@ body {
     align-items: center;
     justify-content: center;
     padding: 4rem 2rem 2rem 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
-    gap: 4rem;
     overflow: visible;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .hero-content {
@@ -297,6 +304,11 @@ body {
     align-items: flex-start;
     justify-content: center;
     overflow: visible;
+}
+
+.hero-card {
+    flex: 0 0 auto;
+    animation: fadeIn 1s ease 0.3s both;
 }
 
 .avatar {
@@ -1070,3 +1082,53 @@ section > .hero-graphic {
         padding: 0 1rem;
     }
 }
+
+.projects-section {
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.project-card {
+  border-radius: 24px;
+  padding: 3rem;
+  color: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.project-card h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.project-card p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+
+.projects-section {
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.project-card {
+  border-radius: 24px;
+  padding: 3rem;
+  color: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.project-card h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.project-card p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+

@@ -7,7 +7,7 @@ import TextType from './components/TextType';
 import { BounceGradientText } from './components/BounceGradientText';
 import TechScroll from './components/TechScroll';
 import SlideInText from './components/SlideInText';
-import BlogHorizontalScroll from './components/BlogHorizontalScroll';
+import ProjectsSection from './components/ProjectsSection';
 import GooeyNav from './components/GooeyNav';
 import AnimatedSectionTitle from './components/AnimatedSectionTitle';
 import LoadingScreen from './components/LoadingScreen';
@@ -92,6 +92,9 @@ function App() {
         </div>
       </section>
 
+      {/* Projects Section */}
+      <ProjectsSection />
+
       {/* Career Section */}
       <section id="career" className="career">
         <div className="container">
@@ -101,9 +104,6 @@ function App() {
           </div>
         </div>
       </section>
-
-      {/* Blog Section - Horizontal Scroll with GSAP */}
-      <BlogHorizontalScroll />
 
       {/* Tech Stack Scrolling */}
       <TechScroll />
@@ -154,7 +154,7 @@ function App() {
       </footer>
 
       {/* Dodging Button */}
-      <DodgingButton />
+      {!isLoading && <DodgingButton />}
 
       {/* Slide In Text */}
       <SlideInText text="Michael" />
@@ -165,8 +165,8 @@ function App() {
           items={[
             { label: 'Home', href: '#home' },
             { label: 'About', href: '#about' },
-            { label: 'Career', href: '#career' },
             { label: 'Projects', href: '#projects' },
+            { label: 'Career', href: '#career' },
             { label: 'Skills', href: '#skills' },
             { label: 'Contact', href: '#contact' },
             { label: 'Resume', onClick: toggleResume }

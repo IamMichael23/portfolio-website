@@ -7,7 +7,8 @@ import TextType from './components/TextType';
 import { BounceGradientText } from './components/BounceGradientText';
 import TechScroll from './components/TechScroll';
 import SlideInText from './components/SlideInText';
-import BlogHorizontalScroll from './components/BlogHorizontalScroll';
+import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
+import ProfileCard from './components/ProfileCard';
 import GooeyNav from './components/GooeyNav';
 import AnimatedSectionTitle from './components/AnimatedSectionTitle';
 import LoadingScreen from './components/LoadingScreen';
@@ -61,17 +62,35 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="hero">
-        <div className="hero-content">
-          <div className="hero-title-wrapper">
-            <TextType text="Hey! You Made It" typingSpeed={60} loop={false} showCursor={true} initialDelay={1000} />
-            <BounceGradientText delay={0.3}>I'm Michael Chen</BounceGradientText>
+        <div className="hero-container">
+          <div className="hero-content">
+            <div className="hero-title-wrapper">
+              <TextType text="Hey! You Made It" typingSpeed={60} loop={false} showCursor={true} initialDelay={1000} />
+              <BounceGradientText delay={0.3}>I'm Michael Chen</BounceGradientText>
+            </div>
+            <ShinyText
+              text="AI'm on It: Turning Data Into Decisions"
+              speed={3}
+              className="hero-subtitle"
+            />
+            <p className="hero-motto">"Transforming complex problems into actionable insights"</p>
           </div>
-          <ShinyText
-            text="AI'm on It: Turning Data Into Decisions"
-            speed={3}
-            className="hero-subtitle"
-          />
-          <p className="hero-motto">"Transforming complex problems into actionable insights"</p>
+          <div className="hero-card">
+            <ProfileCard
+              avatarUrl="/headshot.jpg"
+              miniAvatarUrl="/headshot.jpg"
+              name="Michael Chen"
+              title="Data & AI Professional"
+              handle="mchen522"
+              status="Available for opportunities"
+              contactText="Get In Touch"
+              onContactClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+              showUserInfo={true}
+              enableTilt={true}
+              enableMobileTilt={false}
+              showBehindGradient={true}
+            />
+          </div>
         </div>
       </section>
 
@@ -96,8 +115,40 @@ function App() {
         </div>
       </section>
 
-      {/* Blog Section - Horizontal Scroll with GSAP */}
-      <BlogHorizontalScroll />
+      {/* Projects Section - Scroll Stack */}
+      <section id="projects" className="projects-section">
+        <div className="container">
+          <AnimatedSectionTitle text="Projects" animationType="bounce" />
+        </div>
+        <ScrollStack
+          useWindowScroll={true}
+          itemDistance={100}
+          itemScale={0.03}
+          itemStackDistance={30}
+          stackPosition="20%"
+          scaleEndPosition="10%"
+          baseScale={0.85}
+        >
+          <ScrollStackItem>
+            <div className="project-card" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
+              <h3>Hybrid Multi-Agent RAG Framework</h3>
+              <p>Developed a production-ready multi-agent framework integrating LangGraph orchestration with LlamaIndex RAG for intelligent advisory systems.</p>
+            </div>
+          </ScrollStackItem>
+          <ScrollStackItem>
+            <div className="project-card" style={{ background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' }}>
+              <h3>Student Performance Predictor</h3>
+              <p>Built and deployed a multiple linear regression model achieving 95% accuracy through advanced feature engineering.</p>
+            </div>
+          </ScrollStackItem>
+          <ScrollStackItem>
+            <div className="project-card" style={{ background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' }}>
+              <h3>Piano Melody Generator</h3>
+              <p>Led a 4-member team to design LSTM/GRU models for MIDI-based melody generation, achieving a 6.78/10 listener rating.</p>
+            </div>
+          </ScrollStackItem>
+        </ScrollStack>
+      </section>
 
       {/* Tech Stack Scrolling */}
       <TechScroll />

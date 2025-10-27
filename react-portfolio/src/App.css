@@ -283,7 +283,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 4rem 2rem 2rem 2rem;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     gap: 4rem;
     overflow: visible;
@@ -297,6 +297,47 @@ body {
     align-items: flex-start;
     justify-content: center;
     overflow: visible;
+}
+
+/* Hero Profile Card - Desktop Only */
+.hero-profile-card {
+    flex: 0 0 auto;
+    width: 400px;
+    animation: fadeIn 1s ease 0.3s both;
+}
+
+/* Remove the behind glow wrapper - target the wrapper class */
+.pc-card-wrapper.hero-profile-card::before {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Also remove any background glow from hover state */
+.pc-card-wrapper.hero-profile-card:hover::before,
+.pc-card-wrapper.hero-profile-card.active::before {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Center the avatar image properly */
+.hero-profile-card .pc-avatar-content .avatar {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+@media (max-width: 1024px) {
+    .hero-profile-card {
+        display: none;
+    }
 }
 
 .avatar {
@@ -486,7 +527,7 @@ section > .hero-graphic {
     justify-content: center;
     padding: 5rem 0;
     position: relative;
-    z-index: 10;
+    z-index: 1;
 }
 
 .blog-horizontal-wrapper {

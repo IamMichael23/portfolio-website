@@ -136,23 +136,11 @@ const GooeyNav = ({
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const sectionTop = rect.top + scrollTop;
 
-        // Check if mobile (no horizontal scroll animation)
-        const isMobile = window.innerWidth <= 480;
-
-        if (isMobile) {
-          // On mobile, just scroll to the section top
-          window.scrollTo({
-            top: sectionTop - 100,
-            behavior: 'smooth'
-          });
-        } else {
-          // On desktop, scroll to centered/paused state (3 viewport heights into the section)
-          const scrollDistance = window.innerHeight * 3;
-          window.scrollTo({
-            top: sectionTop + scrollDistance,
-            behavior: 'smooth'
-          });
-        }
+        // Scroll to the section top with offset for the nav
+        window.scrollTo({
+          top: sectionTop - 100,
+          behavior: 'smooth'
+        });
       }
     } else if (href === '#skills') {
       e.preventDefault();

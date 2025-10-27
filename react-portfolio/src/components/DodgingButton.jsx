@@ -1,84 +1,65 @@
-import { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import './DodgingButton.css';
 
 const DodgingButton = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isDodging, setIsDodging] = useState(false);
   const buttonRef = useRef(null);
-  const containerRef = useRef(null);
-
-  const dodge = (mouseX, mouseY) => {
-    if (!buttonRef.current || !containerRef.current) return;
-
-    const button = buttonRef.current.getBoundingClientRect();
-    const container = containerRef.current.getBoundingClientRect();
-
-    const buttonCenterX = button.left + button.width / 2;
-    const buttonCenterY = button.top + button.height / 2;
-
-    const distance = Math.sqrt(
-      Math.pow(mouseX - buttonCenterX, 2) + Math.pow(mouseY - buttonCenterY, 2)
-    );
-
-    // If mouse is within 400px, dodge MUCH faster and more aggressively
-    if (distance < 400) {
-      setIsDodging(true);
-
-      // Calculate dodge direction (away from mouse) with added randomness
-      const angle = Math.atan2(buttonCenterY - mouseY, buttonCenterX - mouseX) + (Math.random() - 0.5) * 0.5;
-      const dodgeDistance = 250;
-
-      let newX = position.x + Math.cos(angle) * dodgeDistance;
-      let newY = position.y + Math.sin(angle) * dodgeDistance;
-
-      // Keep button within container bounds
-      const maxX = (container.width - button.width) / 2;
-      const maxY = (container.height - button.height) / 2;
-
-      newX = Math.max(-maxX, Math.min(maxX, newX));
-      newY = Math.max(-maxY, Math.min(maxY, newY));
-
-      setPosition({ x: newX, y: newY });
-
-      setTimeout(() => setIsDodging(false), 100);
-    }
-  };
-
-  const handleClick = () => {
-    alert('Clickety-click! You\'re awesome 👍');
-  };
+  const posX = useRef(0);
+  const posY = useRef(0);
 
   useEffect(() => {
+    const button = buttonRef.current;
+    if (!button) return;
+
+    let rafId = null;
+
     const handleMouseMove = (e) => {
-      dodge(e.clientX, e.clientY);
+      if (rafId) cancelAnimationFrame(rafId);
+
+      rafId = requestAnimationFrame(() => {
+        const rect = button.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const dx = e.clientX - centerX;
+        const dy = e.clientY - centerY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 100) {
+          // Move away from cursor
+          const angle = Math.atan2(dy, dx);
+          posX.current -= Math.cos(angle) * 50;
+          posY.current -= Math.sin(angle) * 50;
+
+          // Limit movement
+          posX.current = Math.max(-100, Math.min(100, posX.current));
+          posY.current = Math.max(-100, Math.min(100, posY.current));
+
+          button.style.transform = `translate(${posX.current}px, ${posY.current}px)`;
+        }
+      });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [position]);
+    document.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
+  const handleClick = () => {
+    alert('You caught me! 👍');
+  };
 
   return (
-    <div ref={containerRef} className="dodging-button-container">
-      <motion.button
+    <div className="dodging-button-container">
+      <button
         ref={buttonRef}
         className="dodging-button"
         onClick={handleClick}
-        animate={{
-          x: position.x,
-          y: position.y,
-          scale: isDodging ? 1.1 : 1,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 1200,
-          damping: 8
-        }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
       >
         Press Me
-      </motion.button>
+      </button>
     </div>
   );
 };
