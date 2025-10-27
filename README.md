@@ -8,4 +8,4 @@ This is my interactive portfolio/resume website where I showcase my journey as a
 
 **© 2025 Michael Chen** — *Crafted in pixels and patience.*
 
-Thanks for stopping by! If you scrolled all the way down here, you clearly have great taste. ✨
+Thanks for stopping by! 
