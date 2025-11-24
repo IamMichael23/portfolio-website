@@ -7,15 +7,20 @@ import TextType from './components/TextType';
 import { BounceGradientText } from './components/BounceGradientText';
 import TechScroll from './components/TechScroll';
 import SlideInText from './components/SlideInText';
-import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
-import ProfileCard from './components/ProfileCard';
+import ProjectsSection from './components/ProjectsSection';
 import GooeyNav from './components/GooeyNav';
 import AnimatedSectionTitle from './components/AnimatedSectionTitle';
 import LoadingScreen from './components/LoadingScreen';
+import ResumeViewer from './components/ResumeViewer';
 import './App.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
+  const toggleResume = () => {
+    setIsResumeOpen(!isResumeOpen);
+  };
 
   // Reset scroll position on load
   useEffect(() => {
@@ -62,35 +67,17 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="hero">
-        <div className="hero-container">
-          <div className="hero-content">
-            <div className="hero-title-wrapper">
-              <TextType text="Hey! You Made It" typingSpeed={60} loop={false} showCursor={true} initialDelay={1000} />
-              <BounceGradientText delay={0.3}>I'm Michael Chen</BounceGradientText>
-            </div>
-            <ShinyText
-              text="AI'm on It: Turning Data Into Decisions"
-              speed={3}
-              className="hero-subtitle"
-            />
-            <p className="hero-motto">"Transforming complex problems into actionable insights"</p>
+        <div className="hero-content">
+          <div className="hero-title-wrapper">
+            <TextType text="Hey! You Made It" typingSpeed={60} loop={false} showCursor={true} initialDelay={1000} />
+            <BounceGradientText delay={0.3}>I'm Michael Chen</BounceGradientText>
           </div>
-          <div className="hero-card">
-            <ProfileCard
-              avatarUrl="/headshot.jpg"
-              miniAvatarUrl="/headshot.jpg"
-              name="Michael Chen"
-              title="Data & AI Professional"
-              handle="mchen522"
-              status="Available for opportunities"
-              contactText="Get In Touch"
-              onContactClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              showUserInfo={true}
-              enableTilt={true}
-              enableMobileTilt={false}
-              showBehindGradient={true}
-            />
-          </div>
+          <ShinyText
+            text="AI'm on It: Turning Data Into Decisions"
+            speed={3}
+            className="hero-subtitle"
+          />
+          <p className="hero-motto">"Transforming complex problems into actionable insights"</p>
         </div>
       </section>
 
@@ -105,6 +92,9 @@ function App() {
         </div>
       </section>
 
+      {/* Projects Section */}
+      <ProjectsSection />
+
       {/* Career Section */}
       <section id="career" className="career">
         <div className="container">
@@ -113,41 +103,6 @@ function App() {
             <RoadMapTimeline />
           </div>
         </div>
-      </section>
-
-      {/* Projects Section - Scroll Stack */}
-      <section id="projects" className="projects-section">
-        <div className="container">
-          <AnimatedSectionTitle text="Projects" animationType="bounce" />
-        </div>
-        <ScrollStack
-          useWindowScroll={true}
-          itemDistance={100}
-          itemScale={0.03}
-          itemStackDistance={30}
-          stackPosition="20%"
-          scaleEndPosition="10%"
-          baseScale={0.85}
-        >
-          <ScrollStackItem>
-            <div className="project-card" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
-              <h3>Hybrid Multi-Agent RAG Framework</h3>
-              <p>Developed a production-ready multi-agent framework integrating LangGraph orchestration with LlamaIndex RAG for intelligent advisory systems.</p>
-            </div>
-          </ScrollStackItem>
-          <ScrollStackItem>
-            <div className="project-card" style={{ background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' }}>
-              <h3>Student Performance Predictor</h3>
-              <p>Built and deployed a multiple linear regression model achieving 95% accuracy through advanced feature engineering.</p>
-            </div>
-          </ScrollStackItem>
-          <ScrollStackItem>
-            <div className="project-card" style={{ background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' }}>
-              <h3>Piano Melody Generator</h3>
-              <p>Led a 4-member team to design LSTM/GRU models for MIDI-based melody generation, achieving a 6.78/10 listener rating.</p>
-            </div>
-          </ScrollStackItem>
-        </ScrollStack>
       </section>
 
       {/* Tech Stack Scrolling */}
@@ -174,30 +129,54 @@ function App() {
             </div>
             <div className="contact-info">
               <a href="mailto:mchen522@uwo.ca" className="cta-button">Contact me</a>
+              <button className="resume-button" onClick={toggleResume}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+                View Resume
+              </button>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer-content">
+          <p className="footer-version">Version 2.5 — still debugging life.</p>
+          <p className="footer-copyright">© 2025 Michael Chen — Crafted in pixels and patience.</p>
+          <p className="footer-thanks">Thanks for scrolling all the way down — you clearly have great taste.</p>
+        </div>
+      </footer>
+
       {/* Dodging Button */}
-      <DodgingButton />
+      {!isLoading && <DodgingButton />}
 
       {/* Slide In Text */}
       <SlideInText text="Michael" />
 
       {/* Gooey Navigation */}
-      <div style={{ position: 'fixed', top: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 1000 }}>
+      <div className="nav-wrapper">
         <GooeyNav
           items={[
             { label: 'Home', href: '#home' },
             { label: 'About', href: '#about' },
-            { label: 'Career', href: '#career' },
             { label: 'Projects', href: '#projects' },
-            { label: 'Contact', href: '#contact' }
+            { label: 'Career', href: '#career' },
+            { label: 'Skills', href: '#skills' },
+            { label: 'Contact', href: '#contact' },
+            { label: 'Resume', onClick: toggleResume }
           ]}
           initialActiveIndex={0}
         />
       </div>
+
+      {/* Resume Viewer */}
+      {isResumeOpen && <ResumeViewer isOpen={isResumeOpen} onClose={toggleResume} />}
     </div>
   );
 }

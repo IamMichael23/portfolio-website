@@ -1,11 +1,16 @@
-# 👋 Hey! Welcome to My Digital Resume
+# React + Vite
 
-**Version 2.5** — *still debugging life.*
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This is my interactive portfolio/resume website where I showcase my journey as a data scientist, AI enthusiast, and professional problem-solver. If you're here, you probably want to know what I've been up to, what I can do, or you're just procrastinating (no judgment).
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-**© 2025 Michael Chen** — *Crafted in pixels and patience.*
+## React Compiler
 
-Thanks for stopping by! 
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

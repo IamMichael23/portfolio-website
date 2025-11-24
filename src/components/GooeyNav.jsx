@@ -95,6 +95,15 @@ const GooeyNav = ({
 
   const handleClick = (e, index) => {
     const liEl = e.currentTarget;
+    const item = items[index];
+
+    // Handle button click callback (for Resume)
+    if (item.onClick) {
+      e.preventDefault();
+      item.onClick();
+      return;
+    }
+
     if (activeIndex === index) return;
 
     setActiveIndex(index);
@@ -114,6 +123,38 @@ const GooeyNav = ({
 
     if (filterRef.current) {
       makeParticles(filterRef.current);
+    }
+
+    // Handle special navigation for Projects and Skills sections
+    const href = item?.href;
+    if (href === '#projects') {
+      e.preventDefault();
+      const projectsSection = document.querySelector('#projects');
+      if (projectsSection) {
+        // Get the exact position where the section starts
+        const rect = projectsSection.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const sectionTop = rect.top + scrollTop;
+
+        // Scroll to the section top with offset for the nav
+        window.scrollTo({
+          top: sectionTop - 100,
+          behavior: 'smooth'
+        });
+      }
+    } else if (href === '#skills') {
+      e.preventDefault();
+      const skillsSection = document.querySelector('#skills');
+      if (skillsSection) {
+        const rect = skillsSection.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const skillsTop = rect.top + scrollTop;
+
+        window.scrollTo({
+          top: skillsTop - 100,
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
@@ -152,7 +193,12 @@ const GooeyNav = ({
         <ul ref={navRef}>
           {items.map((item, index) => (
             <li key={index} className={activeIndex === index ? 'active' : ''}>
-              <a href={item.href} onClick={e => handleClick(e, index)} onKeyDown={e => handleKeyDown(e, index)}>
+              <a
+                href={item.href || '#'}
+                onClick={e => handleClick(e, index)}
+                onKeyDown={e => handleKeyDown(e, index)}
+                className={item.onClick ? 'nav-button' : ''}
+              >
                 {item.label}
               </a>
             </li>
