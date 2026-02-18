@@ -73,11 +73,11 @@ function App() {
             <BounceGradientText delay={0.3}>I'm Michael Chen</BounceGradientText>
           </div>
           <ShinyText
-            text="AI'm on It: Turning Data Into Decisions"
+            text="Building AI that works — not just in theory, but in production."
             speed={3}
             className="hero-subtitle"
           />
-          <p className="hero-motto">"Transforming complex problems into actionable insights"</p>
+          <p className="hero-motto">"From raw data to real decisions."</p>
         </div>
       </section>
 
@@ -86,8 +86,8 @@ function App() {
         <div className="container">
           <AnimatedSectionTitle text="About Me" animationType="split" />
           <div className="blog-card about-content">
-            <p>I'm a data-driven innovator passionate about cutting-edge AI. Currently pursuing a Master of Data Analytics (Artificial Intelligence) at Western University, I completed my Honours BSc in Mathematics & Computer Science at the University of Toronto, building a strong foundation in ML, deep learning, computer vision, and data analysis.</p>
-            <p>I transform complex problems into actionable insights through code, data, and creativity. Thriving in fast-paced environments, I bridge technical concepts with practical outcomes while maintaining strong problem-solving skills and effective time management.</p>
+            <p>I'm an AI developer and data analyst finishing a Master of Data Analytics (AI) at Western University, with a 4.0 GPA and a background in Mathematics & Computer Science from the University of Toronto. I build systems that solve real problems — from RAG pipelines and computer vision tools to CRM automation.</p>
+            <p>My work spans the full stack of applied AI: training models, engineering retrieval systems, deploying containerized workflows, and measuring what actually matters. I'm at my best when there's a messy problem, real data, and a clear goal.</p>
           </div>
         </div>
       </section>
@@ -121,7 +121,7 @@ function App() {
                   <circle cx="4" cy="4" r="2" fill="white"/>
                 </svg>
               </a>
-              <a href="https://github.com/PurpleChina23" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/IamMichael23" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
                   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
                 </svg>

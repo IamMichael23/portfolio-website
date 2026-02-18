@@ -4,11 +4,23 @@ import './ProjectsSection.css';
 const ProjectsSection = () => {
   const projects = [
     {
+      id: 0,
+      title: 'Comparative RAG System: GraphRAG vs LightRAG',
+      tech: 'GraphRAG · LightRAG · Neo4j · AWS',
+      date: 'Feb 2026',
+      description: 'A head-to-head evaluation of two graph-based RAG architectures across legal and medical datasets on AWS, finding LightRAG delivers 3–5× faster indexing and 50–70% lower cost at comparable answer quality.',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M18 20V10M12 20V4M6 20v-6"/>
+        </svg>
+      )
+    },
+    {
       id: 1,
       title: 'CRM Integration Platform',
       tech: 'Python',
       date: 'Nov 2025',
-      description: 'Production-grade REST API middleware synchronizing contacts between Fibery and HubSpot CRM platforms. Features intelligent Smart Merge algorithm for field-level comparison and selective updates, with automated ETL workflows handling data transformation, name parsing, field mapping, and validation.',
+      description: 'An automated pipeline that syncs 10,000+ contacts between two CRM systems, eliminating 25+ hours of manual data entry weekly and cutting operational costs by 75%.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
@@ -23,7 +35,7 @@ const ProjectsSection = () => {
       title: 'Hybrid Multi-Agent RAG Framework',
       tech: 'LangGraph + LlamaIndex',
       date: 'Sep 2025',
-      description: 'Enterprise-ready multi-agent system combining LangGraph orchestration with LlamaIndex RAG capabilities. Optimized retrieval pipeline using dimensional embedding tuning, hybrid BM25+dense retrieval, and advanced prompt engineering. Includes stateful conversation system with contextual memory and hierarchical knowledge sharing across agents.',
+      description: 'A production-grade AI system where multiple specialized agents collaborate to answer complex questions, achieving a faithfulness score of 0.95 and boosting answer correctness from 0.60 to 0.95.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -37,7 +49,7 @@ const ProjectsSection = () => {
       title: 'Student Performance Predictor',
       tech: 'R',
       date: 'Jun 2024',
-      description: 'Statistical machine learning system built in R for predicting student academic performance. Implements multiple regression models, feature engineering pipelines, and cross-validation techniques. Uses statistical analysis to identify key performance indicators and educational risk factors while handling missing data and class imbalance.',
+      description: 'A regression model that predicts student grades from 12 demographic and behavioral factors, reaching 95–97% accuracy with an R² of 0.92.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
@@ -49,7 +61,7 @@ const ProjectsSection = () => {
       title: 'Piano Melody Generator',
       tech: 'PyTorch',
       date: 'Dec 2023',
-      description: 'AI-powered music generation system using PyTorch. Led a 4-person development team to build a 2-layer LSTM architecture trained on MIDI files to create original piano melodies. Project included comprehensive user evaluation framework and collaborative development workflows.',
+      description: 'A neural network that composes original piano melodies, built with a team of four and rated 6.78/10 by over 50 independent evaluators.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M9 18V5l12-2v13"/>
@@ -63,7 +75,7 @@ const ProjectsSection = () => {
       title: 'Hybrid ML Predictive Model',
       tech: 'PyTorch',
       date: 'Aug 2023',
-      description: 'Advanced predictive modeling framework combining traditional statistical methods with deep learning neural networks. Integrates classical machine learning techniques with modern deep learning architectures to leverage both interpretability and representation learning capabilities. Features ensemble methods and custom loss functions.',
+      description: 'An ensemble model combining a deep neural network with Item Response Theory to predict student outcomes, improving accuracy from 68% to 88% on a 500+ student dataset.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 2L2 7l10 5 10-5-10-5z"/>

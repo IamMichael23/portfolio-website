@@ -9,6 +9,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import VerifiedIcon from '@mui/icons-material/Verified';
 import Typography from '@mui/material/Typography';
 import './RoadMapTimeline.css';
 
@@ -47,7 +48,7 @@ export default function RoadMapTimeline() {
           variant="body2"
           className="timeline-date-text"
         >
-          2022 – Present
+          2022 – 2025
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector className="timeline-connector" />
@@ -58,10 +59,10 @@ export default function RoadMapTimeline() {
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
           <Typography variant="h6" component="span" className="timeline-title">
-            Independent Data Analyst & Developer
+            AI Developer — Dumpling Collectables
           </Typography>
           <Typography className="timeline-description">
-            Trading Card Business – Built automated card grading system and inventory & sales tracking pipeline, boosting efficiency and profit margins.
+            Built a computer vision grading system (90% accuracy, 98% faster) and an n8n automation pipeline for market tracking, driving a 200% ROI increase through data-driven inventory decisions.
           </Typography>
         </TimelineContent>
       </TimelineItem>
@@ -73,7 +74,7 @@ export default function RoadMapTimeline() {
           variant="body2"
           className="timeline-date-text"
         >
-          2025
+          Feb – Jul 2025
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector className="timeline-connector" />
@@ -84,10 +85,10 @@ export default function RoadMapTimeline() {
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
           <Typography variant="h6" component="span" className="timeline-title">
-            AI-Powered Sales Advisor
+            AI Data Analyst — Golf Town
           </Typography>
           <Typography className="timeline-description">
-            Golf Town – Developed RAG chatbot and integrated data-driven insights to improve equipment recommendations and customer satisfaction.
+            Deployed a RAG chatbot with LangChain and a vector database, cutting product discovery time by 98% and tripling service capacity for in-store consultations.
           </Typography>
         </TimelineContent>
       </TimelineItem>
@@ -109,10 +110,35 @@ export default function RoadMapTimeline() {
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
           <Typography variant="h6" component="span" className="timeline-title">
-            Master of Data Analytics (AI)
+            Master of Data Analytics (AI) — Western University
           </Typography>
           <Typography className="timeline-description">
-            Western University (Expected 08/2026) – Applying expertise in software engineering, ML, and AI solutions while exploring opportunities to combine technical skills with creativity.
+            Specializing in AI with a 4.0 GPA, covering reinforcement learning, deep learning, computer vision, and NLP. Expected graduation August 2026.
+          </Typography>
+        </TimelineContent>
+      </TimelineItem>
+
+      <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0' }}
+          variant="body2"
+          className="timeline-date-text"
+        >
+          Sep 2024
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineConnector className="timeline-connector" />
+          <TimelineDot className="timeline-dot timeline-dot-primary">
+            <VerifiedIcon />
+          </TimelineDot>
+          <TimelineConnector className="timeline-connector" />
+        </TimelineSeparator>
+        <TimelineContent sx={{ py: '12px', px: 2 }}>
+          <Typography variant="h6" component="span" className="timeline-title">
+            Microsoft Certified: Azure Fundamentals (AZ-900)
+          </Typography>
+          <Typography className="timeline-description">
+            Certified in core Azure cloud concepts, services, security, and pricing fundamentals.
           </Typography>
         </TimelineContent>
       </TimelineItem>
